@@ -1,14 +1,13 @@
 import spidev
 import datetime
 import sys
-from itg3200 import SensorITG3200
+import gyro
 
-sensor = SensorITG3200(1, 0x69)
-sensor.default_init()
-
+sensor = gyro.itg3200(1, 0x69, 0, 0)
 spi = spidev.SpiDev()
 spi.open(0,0);
 spi.max_speed_hz = 32000000
+
 def buildReadCommand(channel):
         startBit = 0x01
         singleEnded = 0x08
@@ -31,7 +30,7 @@ if __name__ == '__main__':
                 for n in range(0,samples):
                         val0, val1, val2, val3  = readAdc(0), readAdc(1), readAdc(2), readAdc(3)
                         #print val0, val1, val2, val3
-			gx, gy, gz = sensor.read_data()
+                        gx, gy, gz = sensor.read_data()
                         n = n+1
                 endtime = datetime.datetime.now()
                 print samples, starttime, endtime
