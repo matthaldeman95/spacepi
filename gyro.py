@@ -27,6 +27,14 @@ class itg3200(object):
         return (gx, gy, gz)
 
 if __name__ == '__main__':
-    sensor = itg3200(1, 0x69, 0, 0)
-    gx, gy, gz = sensor.read_data()
-    print gx, gy, gz
+	import sys
+	import datetime
+	samples = 5000
+	sensor = itg3200(1, 0x69, 0, 0)
+	starttime = datetime.datetime.now()
+	for n in range (0, samples):
+		gx, gy, gz = sensor.read_data()
+    		#print gx, gy, gz
+		n = n + 1
+	endtime = datetime.datetime.now()
+	print samples, starttime, endtime
