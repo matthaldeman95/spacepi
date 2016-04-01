@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f76778ef-a7d4-44b3-a898-4bbcf3401ea2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/gyro.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gyro.py" afterPath="$PROJECT_DIR$/gyro.py" />
     </list>
     <ignored path="SPACEPi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,8 +26,8 @@
       <file leaf-file-name="gyro.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gyro.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+            <state relative-caret-position="60">
+              <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -55,8 +53,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="474" />
-    <option name="y" value="23" />
+    <option name="x" value="316" />
+    <option name="y" value="29" />
     <option name="width" value="891" />
     <option name="height" value="777" />
   </component>
@@ -111,7 +109,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="474" y="23" width="891" height="777" extended-state="0" />
+    <frame x="316" y="29" width="891" height="777" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35977012" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -143,8 +141,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/gyro.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="60">
+          <caret line="4" column="27" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
           <folding />
         </state>
       </provider>

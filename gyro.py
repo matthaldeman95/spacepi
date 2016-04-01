@@ -1,5 +1,12 @@
 import smbus
 
+"""
+Registers:
+Sample Rate Divider:  0x15 
+
+
+"""
+
 def int_sw_swap(x):
     xl = x & 0xff
     xh = x >> 8
