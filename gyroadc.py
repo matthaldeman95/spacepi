@@ -31,7 +31,6 @@ if __name__ == '__main__':
                         #val0, val1, val2, val3  = readAdc(0), readAdc(1), readAdc(2), readAdc(3)
                         #print val0, val1, val2, val3
                         gx, gy, gz = sensor.read_data()
-                        n = n+1
                 endtime = datetime.datetime.now()	
 		td = endtime - starttime
 		print samples/td.total_seconds()

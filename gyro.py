@@ -28,6 +28,5 @@ if __name__ == '__main__':
 	for n in range (0, samples):
 		gx, gy, gz = sensor.read_data()
     		#print gx, gy, gz
-		n = n + 1
 	endtime = datetime.datetime.now()
 	print samples, starttime, endtime

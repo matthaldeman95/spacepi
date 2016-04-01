@@ -27,7 +27,6 @@ if __name__ == '__main__':
 		for n in range(0,samples):
 			val0, val1, val2, val3  = readAdc(0), readAdc(1), readAdc(2), readAdc(3)
 			print val0, val1, val2, val3
-			n = n+1
 		endtime = datetime.datetime.now()
 		print samples, starttime, endtime
 	except KeyboardInterrupt:
