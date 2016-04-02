@@ -25,15 +25,21 @@ def readAdc(channel):
 
 if __name__ == '__main__':
         try:
+		outfile = open('testdata.csv', 'w')
+		outfile.write('adc1, adc2, adc3, adc4, gx, gy, gz \n')
                 samples = 10000
                 starttime = datetime.datetime.now()
                 for n in range(0,samples):
-                        #val0, val1, val2, val3  = readAdc(0), readAdc(1), readAdc(2), readAdc(3)
+                        val0, val1, val2, val3  = readAdc(0), readAdc(1), readAdc(2), readAdc(3)
                         #print val0, val1, val2, val3
-                        gx, gy, gz = sensor.read_data()
+			if n%2 == 0:
+				gx, gy, gz = sensor.read_data()
+			#print gx, gy, gz
+			outfile.write('%d, %d, %d, %d, %d, %d, %d \n' % (val0, val1, val2, val3, gx, gy, gz))
                 endtime = datetime.datetime.now()	
 		td = endtime - starttime
 		print samples/td.total_seconds()
+		outfile.close()
         except KeyboardInterrupt:
                 spi.close()
                 sys.exit(0)
