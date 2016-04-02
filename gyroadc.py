@@ -35,7 +35,7 @@ if __name__ == '__main__':
 			if n%2 == 0:
 				gx, gy, gz = sensor.read_data()
 			#print gx, gy, gz
-			outfile.write('%d, %d, %d, %d, %d, %d, %d \n' % (val0, val1, val2, val3, gx, gy, gz))
+			outfile.write('%s,%d, %d, %d, %d, %d, %d, %d \n' % (datetime.datetime.now(), val0, val1, val2, val3, gx, gy, gz))
                 endtime = datetime.datetime.now()	
 		td = endtime - starttime
 		print samples/td.total_seconds()
