@@ -3,7 +3,10 @@ import datetime
 import sys
 import gyro
 import time
+<<<<<<< HEAD
 
+=======
+>>>>>>> 93770fe996d6135cb6057aec4b98e0191ccf6223
 sensor = gyro.itg3200(1, 0x69, 0, 0)
 spi = spidev.SpiDev()
 spi.open(0,0);
@@ -26,12 +29,18 @@ def readAdc(channel):
 
 if __name__ == '__main__':
         try:
+<<<<<<< HEAD
                 outfile = open('testdata.csv','w')
                 outfile.write('time, adc1, adc2, adc3, adc4, gx, gy, gz \n')
+=======
+		outfile = open('testdata.csv', 'w')
+		outfile.write('adc1, adc2, adc3, adc4, gx, gy, gz \n')
+>>>>>>> 93770fe996d6135cb6057aec4b98e0191ccf6223
                 samples = 10000
                 starttime = datetime.datetime.now()
                 for n in range(0,samples):
                         val0, val1, val2, val3  = readAdc(0), readAdc(1), readAdc(2), readAdc(3)
+<<<<<<< HEAD
                         if n%2 == 0:
                             gx, gy, gz = sensor.read_data()
                         print datetime.datetime.now(), val0, val1, val2, val3, gx, gy, gz
@@ -40,6 +49,17 @@ if __name__ == '__main__':
                 td = endtime - starttime
                 print samples/td.total_seconds()
                 outfile.close()
+=======
+                        #print val0, val1, val2, val3
+			if n%2 == 0:
+				gx, gy, gz = sensor.read_data()
+			#print gx, gy, gz
+			outfile.write('%s,%d, %d, %d, %d, %d, %d, %d \n' % (datetime.datetime.now(), val0, val1, val2, val3, gx, gy, gz))
+                endtime = datetime.datetime.now()	
+		td = endtime - starttime
+		print samples/td.total_seconds()
+		outfile.close()
+>>>>>>> 93770fe996d6135cb6057aec4b98e0191ccf6223
         except KeyboardInterrupt:
                 spi.close()
                 sys.exit(0)
