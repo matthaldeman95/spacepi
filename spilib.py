@@ -1,3 +1,6 @@
+import spidev
+spi = spidev.SpiDev()
+
 def buildReadCommand(channel):
     startBit = 0x01
     singleEnded = 0x08
