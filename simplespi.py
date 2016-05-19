@@ -22,11 +22,15 @@ def readAdc(channel):
 
 if __name__ == '__main__':
 	try:
-		samples =10000
+		samples =1000000
 		starttime = datetime.datetime.now()
 		for n in range(0,samples):
-			val0, val1, val2, val3  = readAdc(0), readAdc(1), readAdc(2), readAdc(3)
-			print val0, val1, val2, val3
+			val0, val1, val2, val3, val4, val5, val6, val7  = readAdc(0), readAdc(1), readAdc(2), readAdc(3), readAdc(4), readAdc(5), readAdc(6), readAdc(7)
+			#val = readAdc(0)
+			#print val0, val1, val2, val3
+			#print val
+			val0 = readAdc(0)
+			print val0
 		endtime = datetime.datetime.now()
 		print samples, starttime, endtime
 	except KeyboardInterrupt:
