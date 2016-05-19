@@ -1,3 +1,5 @@
+import spidev
+
 def buildReadCommand(channel):
     startBit = 0x01
     singleEnded = 0x08
@@ -9,7 +11,7 @@ def processAdcValue(result):
     return (byte2 << 8 | result[2])
 
 
-def readAdc(channel):
+def readAdc(spi,channel):
     if ((channel > 7) or (channel < 0)):
         return -1
     r = spi.xfer2(buildReadCommand(channel))
