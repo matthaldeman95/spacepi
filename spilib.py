@@ -1,5 +1,5 @@
 import spidev
- spi = spidev.SpiDev()
+spi = spidev.SpiDev()
 
 def buildReadCommand(channel):
     startBit = 0x01
