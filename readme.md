@@ -8,3 +8,5 @@ Main data collection routine for flight is the `rsc16.py` file, which needs to b
 Requires the `spilib.py` library, which defines basic SPI communication functions for the Pi to communicate with the MCP3008 ADC.
 
 Requires the `gyro.py` library, which defines I2C communication functions for the ITG3200 gyroscope.
+
+Please see `https://github.com/matthaldeman95/spacepi` for most recent version of code.
