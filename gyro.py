@@ -22,11 +22,13 @@ class itg3200(object):
 if __name__ == '__main__':
 	import sys
 	import datetime
-	samples = 5000
+	samples = 10000
 	sensor = itg3200(1, 0x69, 0, 0)
 	starttime = datetime.datetime.now()
 	for n in range (0, samples):
 		gx, gy, gz = sensor.read_data()
     		#print gx, gy, gz
 	endtime = datetime.datetime.now()
-	print samples, starttime, endtime
+	td = (endtime-starttime).total_seconds()
+	print samples/td
+
