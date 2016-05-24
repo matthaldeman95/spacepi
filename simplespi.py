@@ -6,7 +6,7 @@ import time
 spi = spidev.SpiDev()
 #spi.max_speed_hz = 5000
 spi.open(0,0);
-spi.max_speed_hz = 32000000
+spi.max_speed_hz = 1000000
 
 def buildReadCommand(channel):
 	startBit = 0x01
@@ -29,7 +29,7 @@ if __name__ == '__main__':
 		samples =10000
 		starttime = datetime.datetime.now()	
 		for n in range(0,samples):
-			val0,val1,val2,va3= readAdc(0),readAdc(1), readAdc(2), readAdc(3)
+			val0,val1,val2,val3= readAdc(0),readAdc(1), readAdc(2), readAdc(3)
 			print val0
 		endtime = datetime.datetime.now()
 		td = (endtime-starttime).total_seconds()

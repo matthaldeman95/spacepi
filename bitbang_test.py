@@ -95,10 +95,12 @@ if __name__ == '__main__':
         	for n in range(0,10000):
             		val = readAdc(0, CLK, MISO, MOSI, CS)
 			val = readAdc(1, CLK, MISO, MOSI, CS)
-            		#print val
+            		val = readAdc(2, CLK, MISO, MOSI, CS)
+			val = readAdc(3, CLK, MISO, MOSI, CS)
+			#print val
 		endtime = datetime.datetime.now()
 		td = (endtime-starttime).total_seconds()
- 		print td/10000.0
+ 		print 10000/td
 	except KeyboardInterrupt:
         	GPIO.cleanup()
         	sys.exit(0)
