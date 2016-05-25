@@ -5,6 +5,8 @@ import time
 import math as m
 import Adafruit_GPIO.SPI as SPI
 import Adafruit_MCP3008
+import os
+sys.stdout = open('/home/pi/spacepi/log.txt','w')
 
 sensor = gyro.itg3200(1, 0x69, 0, 0)        # Initialize gyroscope
 SPI_PORT = 0                              # Initialize hardware SPI comm
@@ -23,7 +25,7 @@ gyrothreshold = 200                         # Z-axis gyro value that must be rea
 
 totalrecordtime = 30                        # Duration to record data after spin up begins
 
-
+samples = 10000				    # Number of samples to take per data collection burst
 
 
 
@@ -38,19 +40,19 @@ totalrecordtime = 30                        # Duration to record data after spin
     ROCKET'S SPIN-UP, WHERE DATA COLLECTION WILL BEGIN """
 
 def checkgyro(gyrothreshold):
-    gx, gy, gz = sensor.read_data()                 # Read all three axes of data
-    print "Checking gyro threshold:", gx, gy, gz
-    while m.fabs(gz) < gyrothreshold:               # If absolute value of z-axis rate is lower than threshold,
-        time.sleep(3)                               # wait three seconds, then read and check again
-        gx, gy, gz = sensor.read_data()
-	    print "Checking gyro threshold:", gx, gy, gz
-    time.sleep(3)                                   # When threshold is exceeded, wait three seconds,
-    gx, gy, gz = sensor.read_data()                 # then check again
-    if m.fabs(gz) < gyrothreshold:                  # If threshold is not reached again, start the entire
-        checkgyro(gyrothreshold)                    # threshold routine over again
-    else: return                                    # If threshold is continuously exceeded, move on to data collection
+	gx, gy, gz = sensor.read_data()                 # Read all three axes of data
+	print "Checking gyro threshold:", gx, gy, gz
+	while m.fabs(gz) < gyrothreshold:               # If absolute value of z-axis rate is lower than threshold,
+        	time.sleep(3)                               # wait three seconds, then read and check again
+        	gx, gy, gz = sensor.read_data()
+	    	print "Checking gyro threshold:", gx, gy, gz
+    	time.sleep(3)                                   # When threshold is exceeded, wait three seconds,
+    	gx, gy, gz = sensor.read_data()                 # then check again
+    	if m.fabs(gz) < gyrothreshold:                  # If threshold is not reached again, start the entire
+        	checkgyro(gyrothreshold)                    # threshold routine over again
+    	else: return                                    # If threshold is continuously exceeded, move on to data collection
 
-""" COLLECTIONS TIME, ADC, AND GYROSCOPE DATA.  STORES DATA IN LISTS UNTIL 10000 SAMPLES COLLECTED,
+""" COLLECTS TIME, ADC, AND GYROSCOPE DATA.  STORES DATA IN LISTS UNTIL 10000 SAMPLES COLLECTED,
     THEN STOPS COLLECTING AND DUMPS ALL DATA INTO DATA FILE"""
 
 
@@ -107,6 +109,5 @@ while elaptime < totalrecordtime:                                   # If elapsed
 
 outfile.close()                                                     # Close output data file
 
-sys.exit()                                                          # Close Python
-
+print "Shutting system down now"
 os.system("sudo shutdown -h now")                                   # Shutdown the Raspberry Pi
