@@ -32,16 +32,16 @@ if __name__=="__main__":
                 val1.append(mcp.read_adc(1))
                 val2.append(mcp.read_adc(2))
                 val3.append(mcp.read_adc(3))
-                if n%25 == 0:
+                if n%100 == 0:
                     gxval, gyval, gzval = sensor.read_data()
-                #gx.append(gxval)
-                #gy.append(gyval)
-                #gz.append(gzval)
+                gx.append(gxval)
+                gy.append(gyval)
+                gz.append(gzval)
             endtime = datetime.now()
             td = (endtime - starttime).total_seconds()
             print samples / td
-            #for m in range(0, len(val0)):
-                #outfile.write('%s, %d, %d, %d, %d, %f, %f, %f \n' % (t[m], val0[m], val1[m], val2[m], val3[m], gx[m], gy[m], gz[m]))
+            for m in range(0, len(val0)):
+                outfile.write('%s, %d, %d, %d, %d, %f, %f, %f \n' % (t[m], val0[m], val1[m], val2[m], val3[m], gx[m], gy[m], gz[m]))
             outfile.write('\n \n \n \n \n')
 	    time.sleep(2)
         except KeyboardInterrupt:
